@@ -13,15 +13,10 @@ Un componente de spinner altamente personalizable para React construido con Type
 
 ## Instalación
 
-Copia los siguientes archivos a tu proyecto:
+Instala con [pnpm](https://pnpm.io/) o con el gestor de paquetes que prefieras:
 
 ```
-components/
-├── Spinner/
-│   ├── index.ts
-│   ├── Spinner.tsx
-│   ├── hooks.ts
-│   └── types.ts
+pnpm add react-spinny
 ```
 
 ## Uso básico
