@@ -1,6 +1,6 @@
 {
   "name": "react-spinny",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "description": "Simple collection of loading spinners for React",
   "author": "benjaosuna",
