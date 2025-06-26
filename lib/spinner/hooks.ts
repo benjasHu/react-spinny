@@ -3,8 +3,8 @@ import type { SpinnerProps } from './spinner'
 
 export function useSpinner({
   variant = 'default',
-  foreground,
-  background,
+  background = 'hsl(0 0% 0% / 0.5)',
+  foreground = 'hsl(0 0% 0%)',
   size = 40,
   strokeWidth = 6,
   duration = 800

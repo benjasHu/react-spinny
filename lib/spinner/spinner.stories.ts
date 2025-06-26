@@ -37,8 +37,6 @@ type Story = StoryObj<typeof Spinner>
 export const DefaultSpinner: Story = {
   args: {
     variant: 'default',
-    foreground: 'hsl(158 82% 38%)',
-    background: 'hsl(158 82% 38% / 0.4)',
     size: 40,
     strokeWidth: 6,
     duration: 800
