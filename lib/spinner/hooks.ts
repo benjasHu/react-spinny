@@ -1,5 +1,5 @@
 import { type CSSProperties, useEffect, useMemo } from 'react'
-import type { SpinnerProps } from './types'
+import type { SpinnerProps } from './spinner'
 
 export function useSpinner({
   variant = 'default',

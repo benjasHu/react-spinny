@@ -1,6 +1,14 @@
-import { forwardRef } from 'react'
+import { forwardRef, type HTMLAttributes } from 'react'
 import { useSpinner } from './hooks'
-import type { SpinnerProps } from './types'
+
+export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
+  variant?: 'default' | 'rounded' | 'quarter'
+  foreground: string
+  background?: string
+  size?: string | number
+  strokeWidth?: number
+  duration?: number
+}
 
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner(
   { variant, foreground, background, size, strokeWidth, duration, ...restProps },
