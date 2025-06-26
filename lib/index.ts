@@ -1,4 +1,5 @@
 //import './global.css';
 
 export { useSpinner } from './spinner/hooks'
-export * from './spinner/spinner'
+export { Spinner } from './spinner/spinner'
+export type { SpinnerProps } from './spinner/spinner'

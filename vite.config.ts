@@ -8,13 +8,13 @@ import dts from 'vite-plugin-dts'
 import { peerDependencies } from './package.json'
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), dts({ rollupTypes: true })],
+  plugins: [react(), tailwindcss(), dts({ rollupTypes: true, insertTypesEntry: true })],
   build: {
     target: 'esnext',
     minify: false,
     lib: {
       entry: resolve(__dirname, join('lib', 'index.ts')),
-      fileName: 'index',
+      fileName: (format) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
       cssFileName: 'style',
       formats: ['es', 'cjs']
     },

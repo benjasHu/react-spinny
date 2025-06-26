@@ -5,24 +5,23 @@ export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
   variant?: 'default' | 'rounded' | 'quarter'
   foreground: string
   background?: string
-  size?: string | number
+  size?: number
   strokeWidth?: number
   duration?: number
 }
 
-export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner(
-  { variant, foreground, background, size, strokeWidth, duration, ...restProps },
-  ref
-) {
-  const { style } = useSpinner({ variant, foreground, background, size, strokeWidth, duration })
+export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
+  ({ variant, foreground, background, size, strokeWidth, duration, ...restProps }, ref) => {
+    const { style } = useSpinner({ variant, foreground, background, size, strokeWidth, duration })
 
-  return (
-    <div
-      ref={ref}
-      style={style}
-      {...restProps}
-    />
-  )
-})
+    return (
+      <div
+        ref={ref}
+        style={style}
+        {...restProps}
+      />
+    )
+  }
+)
 
 Spinner.displayName = 'Spinner'
