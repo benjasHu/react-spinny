@@ -1,255 +1,219 @@
-# Spinner Component
+# React Spinny
 
-Un componente de spinner altamente personalizable para React construido con TypeScript. Ofrece múltiples variantes visuales y animaciones CSS puras sin dependencias externas.
+A beautiful, customizable React spinner component with TypeScript support. Features multiple variants, smooth animations, and easy styling.
 
-## Características
+## Installation
+Install with [pnpm](https://pnpm.io/) or your preferred package manager:
 
-- 🎨 **3 variantes visuales**: Default, Rounded y Quarter
-- 🎯 **Totalmente personalizable**: Colores, tamaño, grosor y duración
-- 📦 **Sin dependencias**: Solo CSS y React
-- 🔧 **TypeScript nativo**: Tipado completo incluido
-- ⚡ **Optimizado**: Reutiliza estilos CSS automáticamente
-- 🎪 **Ref forwarding**: Compatible con React 19
-
-## Instalación
-
-Instala con [pnpm](https://pnpm.io/) o con el gestor de paquetes que prefieras:
-
-```
+```bash
 pnpm add react-spinny
 ```
 
-## Uso básico
+## Quick Start
 
 ```tsx
-import { Spinner } from './components/Spinner'
+import { Spinner } from 'react-spinny'
 
 function App() {
   return (
     <Spinner
       variant="default"
       foreground="#3b82f6"
-      background="#e5e7eb"
-      size={40}
     />
   )
 }
 ```
 
+## Component API
+
+### Spinner
+
+```tsx
+import { Spinner } from 'react-spinny'
+
+<Spinner
+  variant="default"
+  foreground="#3b82f6"
+  background="#e5e7eb"
+  size={40}
+  strokeWidth={4}
+  duration={1000}
+/>
+```
+
 ## Props
 
-| Prop           | Tipo                                  | Default       | Descripción                                 |
+| Prop           | Type                                  | Default       | Description                                 |
 | -------------- | ------------------------------------- | ------------- | ------------------------------------------- |
-| `variant`      | `'default' \| 'rounded' \| 'quarter'` | `'default'`   | Estilo visual del spinner                   |
-| `foreground`   | `string`                              | **Requerido** | Color principal del spinner                 |
-| `background`   | `string`                              | `undefined`   | Color de fondo (usado en variant 'quarter') |
-| `size`         | `string \| number`                    | `40`          | Tamaño del spinner en píxeles               |
-| `strokeWidth`  | `number`                              | `6`           | Grosor del trazo                            |
-| `duration`     | `number`                              | `800`         | Duración de la animación en milisegundos    |
-| `...restProps` | `HTMLAttributes<HTMLDivElement>`      | -             | Cualquier prop válida de div                |
+| `variant`      | `'default' \| 'rounded' \| 'quarter'` | `'default'`   | Visual style of the spinner                   |
+| `foreground`   | `string`                              | **Required** | Foreground color                 |
+| `background`   | `string`                              | `undefined`   | Background color (used in 'quarter' variant) |
+| `size`         | `number`                    | `40`          | Size of the spinner in pixels               |
+| `strokeWidth`  | `number`                              | `6`           | Stroke thickness                            |
+| `duration`     | `number`                              | `800`         | Animation duration in milliseconds    |
+| `...restProps` | `HTMLAttributes<HTMLDivElement>`      | -             | Any valid div prop                |
 
-## Variantes
+## Hook API
+
+### useSpinner
+
+```tsx
+import { useSpinner } from 'react-spinny'
+
+function CustomSpinner() {
+  const { style } = useSpinner({
+    variant: 'default',
+    foreground: '#3b82f6',
+    background: '#e5e7eb',
+    size: 40,
+    strokeWidth: 4,
+    duration: 1000
+  })
+
+  return <div style={style} />
+}
+```
+
+## Variants
 
 ### Default
-
-Spinner con gradiente cónico y máscara CSS.
 
 ```tsx
 <Spinner
   variant="default"
   foreground="#3b82f6"
-  size={40}
-  strokeWidth={4}
 />
 ```
 
 ### Rounded
 
-Spinner con puntos redondeados en los extremos.
-
 ```tsx
 <Spinner
   variant="rounded"
-  foreground="#ef4444"
-  size={50}
-  strokeWidth={6}
+  foreground="#10b981"
 />
 ```
 
 ### Quarter
 
-Spinner tipo border con un cuarto coloreado.
-
 ```tsx
 <Spinner
   variant="quarter"
-  foreground="#10b981"
-  background="#e5e7eb"
-  size={30}
-  strokeWidth={3}
-/>
-```
-
-## Uso con Ref
-
-El componente soporta ref forwarding para acceso directo al elemento DOM:
-
-```tsx
-import { useRef, useEffect } from 'react'
-import { Spinner } from './components/Spinner'
-
-function App() {
-  const spinnerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (spinnerRef.current) {
-      console.log('Spinner dimensions:', {
-        width: spinnerRef.current.offsetWidth,
-        height: spinnerRef.current.offsetHeight
-      })
-    }
-  }, [])
-
-  return (
-    <Spinner
-      ref={spinnerRef}
-      variant="default"
-      foreground="#8b5cf6"
-      size={60}
-    />
-  )
-}
-```
-
-## Ejemplos avanzados
-
-### Spinner con eventos
-
-```tsx
-<Spinner
-  variant="rounded"
   foreground="#f59e0b"
-  size={45}
-  onClick={() => console.log('Spinner clicked!')}
-  onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
-  onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-  style={{ cursor: 'pointer', transition: 'transform 0.2s' }}
 />
 ```
 
-### Spinner responsivo
+## Styling
 
-```tsx
-<Spinner
-  variant="default"
-  foreground="currentColor"
-  size="clamp(20px, 5vw, 60px)"
-  className="text-blue-500"
-/>
-```
-
-### Múltiples spinners con diferentes velocidades
-
-```tsx
-<div className="flex gap-4">
-  <Spinner
-    variant="default"
-    foreground="#ef4444"
-    duration={600}
-  />
-  <Spinner
-    variant="rounded"
-    foreground="#3b82f6"
-    duration={800}
-  />
-  <Spinner
-    variant="quarter"
-    foreground="#10b981"
-    duration={1000}
-  />
-</div>
-```
-
-## Arquitectura interna
-
-### Componente Spinner (`Spinner.tsx`)
-
-El componente principal que recibe las props y renderiza el div con los estilos aplicados. Utiliza `forwardRef` para permitir el acceso a la referencia del DOM.
-
-### Hook useSpinner (`hooks.ts`)
-
-Hook personalizado que:
-
-- Calcula los estilos CSS según la variante y props
-- Inyecta las animaciones CSS keyframes en el documento
-- Optimiza la creación de estilos para evitar duplicados
-- Retorna el objeto de estilos listo para aplicar
-
-### Tipos (`types.ts`)
-
-Definiciones de TypeScript que incluyen:
-
-- `SpinnerProps`: Interface principal del componente
-- Extiende `HTMLAttributes<HTMLDivElement>` para compatibilidad total
-
-## Optimizaciones
-
-### Gestión de estilos CSS
-
-Los keyframes CSS se inyectan una sola vez en el documento, sin importar cuántas instancias del componente haya:
-
-```tsx
-// Evita duplicación de estilos
-if (!document.getElementById(styleId)) {
-  // Solo crea el estilo si no existe
-}
-```
-
-### Memoización
-
-Los estilos se memorizan usando `useMemo` para evitar recálculos innecesarios:
-
-```tsx
-const style = useMemo(() => {
-  // Cálculo de estilos...
-}, [variant, foreground, background, duration, size, strokeWidth])
-```
-
-## Compatibilidad
-
-- ✅ React 17+
-- ✅ React 18
-- ✅ React 19
-- ✅ TypeScript 4.0+
-- ✅ Todos los navegadores modernos
-- ✅ SSR compatible (Next.js, Remix, etc.)
-
-## Personalización CSS
-
-Para personalizaciones avanzadas, puedes sobrescribir los estilos usando CSS:
-
-```css
-.custom-spinner {
-  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
-  border-radius: 12px !important;
-}
-```
+The component accepts standard HTML div attributes and can be styled with CSS:
 
 ```tsx
 <Spinner
   variant="default"
   foreground="#3b82f6"
-  className="custom-spinner"
+  className="my-custom-spinner"
+  style={{ margin: '20px auto' }}
 />
 ```
 
-## Rendimiento
+```css
+.my-custom-spinner {
+  opacity: 0.8;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+```
 
-- 🚀 **Ligero**: ~2KB minificado
-- ⚡ **Rápido**: Animaciones CSS puras
-- 🎯 **Eficiente**: Sin re-renders innecesarios
-- 💾 **Optimizado**: Reutilización automática de estilos
+## TypeScript
 
-## Licencia
+Full TypeScript support with comprehensive type definitions:
 
-MIT License - Libre para uso comercial y personal.
+```tsx
+import { Spinner, SpinnerProps, useSpinner } from 'react-spinny'
+
+const props: SpinnerProps = {
+  variant: 'default',
+  foreground: '#3b82f6',
+  size: 48
+}
+
+function TypedSpinner(props: SpinnerProps) {
+  return <Spinner {...props} />
+}
+```
+
+## Examples
+
+### Loading Button
+
+```tsx
+import { Spinner } from 'react-spinny'
+
+function LoadingButton({ isLoading, children }) {
+  return (
+    <button disabled={isLoading}>
+      {isLoading ? (
+        <Spinner
+          variant="default"
+          foreground="#ffffff"
+          size={16}
+        />
+      ) : (
+        children
+      )}
+    </button>
+  )
+}
+```
+
+### Page Loading
+
+```tsx
+import { Spinner } from 'react-spinny'
+
+function PageLoader() {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <Spinner
+        variant="rounded"
+        foreground="#3b82f6"
+        size={48}
+        duration={800}
+      />
+    </div>
+  )
+}
+```
+
+### Custom Colors
+
+```tsx
+import { Spinner } from 'react-spinny'
+
+function ColorfulSpinners() {
+  return (
+    <div className="flex gap-4">
+      <Spinner
+        variant="default"
+        foreground="#ef4444"
+      />
+      <Spinner
+        variant="rounded"
+        foreground="#10b981"
+      />
+      <Spinner
+        variant="quarter"
+        foreground="#f59e0b"
+      />
+    </div>
+  )
+}
+```
+
+## Requirements
+
+- React 16.8+
+- TypeScript 4.5+ (for TypeScript projects)
+
+## License
+
+MIT © [Benja Osuna](https://github.com/benjasHu)
