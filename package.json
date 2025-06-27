@@ -2,17 +2,40 @@
   "name": "react-spinny",
   "private": false,
   "version": "1.0.4",
-  "description": "Simple collection of loading spinners for React",
-  "author": "benjaosuna",
+  "description": "A beautiful, customizable React spinner component with TypeScript support. Features multiple variants, smooth animations, and easy styling.",
+  "keywords": [
+    "react",
+    "spinner",
+    "loading",
+    "component",
+    "typescript",
+    "hook",
+    "animation",
+    "ui",
+    "customizable",
+    "lightweight"
+  ],
+  "author": {
+    "name": "Benja Osuna",
+    "email": "benjashuuu@gmail.com"
+  },
   "license": "MIT",
+  "homepage": "https://github.com/benjasHu/react-spinny#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjasHu/react-spinny.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benjasHu/react-spinny/issues",
+    "email": "tu.email@ejemplo.com"
+  },
   "type": "module",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE.md"
   ],
-  "sideEffects": [
-    "**/*.css"
-  ],
+  "sideEffects": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -21,8 +44,14 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "test": "vitest run",
@@ -77,5 +106,14 @@
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
