@@ -1,9 +1,0 @@
-@import 'tailwindcss';
-
-:root {
-  --primary: 158 82% 38%;
-}
-
-@theme inline {
-  --color-primary: hsl(var(--primary));
-}

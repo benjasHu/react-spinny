@@ -1,5 +1,4 @@
-import type { Preview } from '@storybook/react';
-import '../lib/global.css';
+import type { Preview } from '@storybook/react'
 
 const preview: Preview = {
   tags: ['autodocs'],
@@ -8,10 +7,10 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
-  },
-};
+        date: /Date$/i
+      }
+    }
+  }
+}
 
-export default preview;
+export default preview
