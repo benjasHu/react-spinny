@@ -22,24 +22,23 @@ export function useSpinner({
         ...defaultProps,
         background: foreground,
         padding: strokeWidth,
-        WebkitMask: `conic-gradient(#0000 10%,#000),linear-gradient(#000 0 0) content-box`,
-        WebkitMaskComposite: 'source-out',
         mask: `conic-gradient(#0000 10%,#000),linear-gradient(#000 0 0) content-box`,
         maskComposite: 'subtract'
       }
     } else if (variant === 'rounded') {
       defaultProps = {
         ...defaultProps,
-        background: `radial-gradient(farthest-side,${foreground} 94%,#0000) top/8px 8px no-repeat,
-    conic-gradient(#0000 30%,${foreground})`,
-        WebkitMask: `radial-gradient(farthest-side, #0000 calc(100% - ${strokeWidth}px), #000 0)`
+        background: `radial-gradient(farthest-side,${foreground} 96%,#0000) top/${strokeWidth}px ${strokeWidth}px no-repeat, conic-gradient(#0000 30%,${foreground})`,
+        mask: `radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(100% - ${strokeWidth}px), #000 calc(100% - ${strokeWidth * 0.95}px))`
       }
     } else if (variant === 'quarter') {
       defaultProps = {
         ...defaultProps,
         borderWidth: `${strokeWidth}px`,
         borderStyle: 'solid',
-        borderColor: background,
+        borderTopColor: background,
+        borderLeftColor: background,
+        borderBottomColor: background,
         borderRightColor: foreground
       }
     }
