@@ -1,7 +1,7 @@
 {
   "name": "react-spinny",
   "private": false,
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A beautiful, customizable React spinner component with TypeScript support. Features multiple variants, smooth animations, and easy styling.",
   "keywords": [
     "react",
