@@ -6,6 +6,8 @@
   "keywords": [
     "react",
     "spinner",
+    "loader",
+    "preloader",
     "loading",
     "component",
     "typescript",
@@ -20,14 +22,13 @@
     "email": "benjashuuu@gmail.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/benjasHu/react-spinny#readme",
+  "homepage": "https://benjashu.github.io/react-spinny",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/benjasHu/react-spinny.git"
   },
   "bugs": {
-    "url": "https://github.com/benjasHu/react-spinny/issues",
-    "email": "tu.email@ejemplo.com"
+    "url": "https://github.com/benjasHu/react-spinny/issues"
   },
   "type": "module",
   "files": [
